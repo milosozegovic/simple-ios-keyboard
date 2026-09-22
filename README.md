@@ -41,6 +41,13 @@ xcodebuild -project SimpleKeyboard.xcodeproj -scheme SimpleKeyboard \
   -destination 'platform=iOS Simulator,name=iPhone 17' build
 ```
 
+To build for a device or the App Store, set your Apple Developer Team ID in an
+untracked `Local.xcconfig`:
+
+```sh
+cp Local.xcconfig.example Local.xcconfig   # then edit DEVELOPMENT_TEAM
+```
+
 ## Enabling the keyboard
 
 Settings → General → Keyboard → Keyboards → Add New Keyboard… → Simple Keyboard,
@@ -72,6 +79,7 @@ renders blank on iPhone in the free tier, which is why the digits row is built b
 | `Keyboard/` | The keyboard extension |
 | `Shared/` | Config shared by both targets |
 | `screenshots/` | App Store screens and keyboard-only crops |
+| `docs/` | GitHub Pages site with the privacy policy |
 
 ## Notes
 
