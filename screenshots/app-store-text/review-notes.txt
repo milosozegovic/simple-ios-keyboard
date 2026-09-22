@@ -1,0 +1,5 @@
+Simple Keyboard is a custom keyboard extension. To test it:
+1. Open Settings → General → Keyboard → Keyboards → Add New Keyboard… and choose Simple Keyboard.
+2. Open the Simple Keyboard app (or any app with a text field), tap the text field, then touch and hold the globe key and choose Simple Keyboard.
+3. Tap 123 for the symbol pages (1/2 and 2/2). Long-press S, C, D, Z or the period key to see the extra characters.
+The keyboard does not request Full Access, collects no data and works fully offline.

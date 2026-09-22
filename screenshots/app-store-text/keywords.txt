@@ -1,0 +1,1 @@
+numbers row,layout,serbian,croatian,bosnian,latin,symbols,punctuation,number,switch,long press

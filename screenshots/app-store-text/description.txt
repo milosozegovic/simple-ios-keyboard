@@ -1,0 +1,29 @@
+Switched to iPhone and keep reaching for keys that aren't there? Simple Keyboard brings back the layout you're used to, so you can keep typing instead of relearning.
+
+NUMBERS ALWAYS ON TOP
+A full row of digits sits above the letters on every page. No more tapping 123 to type a time, a code or a price.
+
+COMMA AND PERIOD BESIDE THE SPACEBAR
+Both sit right next to space, where your thumbs expect them.
+
+SYMBOLS WHERE YOU EXPECT THEM
+Tap 123 for two symbol pages, switched with 1/2 and 2/2:
+• 1/2: + × ÷ = / _ < > [ ] and ! @ # $ % ^ & * ( )
+• 2/2: € £ ¥ ₩, braces and bars, bullets and shapes, ¡ and ¿
+
+Š, Ć, Č, Đ AND Ž ON LONG-PRESS
+Hold S, C, D or Z and the letter you need is right next to your finger. Made for Serbian, Croatian, Bosnian and Montenegrin Latin. The letters follow Shift and Caps Lock, and the other accents are still there after them.
+
+QUICK PUNCTUATION
+Hold the period for ? ! ' and " without leaving the letters.
+
+PRIVATE BY DESIGN
+Simple Keyboard does not ask for Full Access, so iOS does not let it connect to the internet. What you type stays on your iPhone. No accounts, no ads, no tracking.
+
+HOW TO TURN IT ON
+1. Open Settings → General → Keyboard → Keyboards
+2. Tap Add New Keyboard and choose Simple Keyboard
+3. In any text field, hold the 🌐 key and pick Simple Keyboard
+
+GOOD TO KNOW
+Simple Keyboard is all about the layout. It does not include autocorrect, word suggestions or swipe typing. For emoji, tap 🌐 to switch to the iPhone keyboard.
