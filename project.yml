@@ -1,4 +1,4 @@
-name: MyKeyboard
+name: SimpleKeyboard
 
 options:
   bundleIdPrefix: com.imaginaroom
@@ -21,7 +21,7 @@ settings:
 
 targets:
 
-  MyKeyboard:
+  SimpleKeyboard:
     type: application
     platform: iOS
     sources:
@@ -39,7 +39,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.imaginaroom.simple-keyboard
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
-        INFOPLIST_KEY_CFBundleDisplayName: MyKeyboard
+        INFOPLIST_KEY_CFBundleDisplayName: Simple Keyboard
         INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
         LD_RUNPATH_SEARCH_PATHS:
           - $(inherited)
@@ -56,7 +56,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.imaginaroom.simple-keyboard.Keyboard
         INFOPLIST_FILE: Keyboard/Info.plist
         GENERATE_INFOPLIST_FILE: YES
-        INFOPLIST_KEY_CFBundleDisplayName: MyKeyboard
+        INFOPLIST_KEY_CFBundleDisplayName: Simple Keyboard
         SKIP_INSTALL: YES
         LD_RUNPATH_SEARCH_PATHS:
           - $(inherited)

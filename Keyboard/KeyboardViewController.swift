@@ -5,7 +5,7 @@ class KeyboardViewController: KeyboardInputViewController {
 
     /// Called once on launch. Configure KeyboardKit here.
     override func viewWillSetupKeyboardKit() {
-        setupKeyboardKit(for: .myKeyboard) { [weak self] result in
+        setupKeyboardKit(for: .simpleKeyboard) { [weak self] result in
             switch result {
             case .success:
                 // No autocomplete, so the suggestion toolbar is dead space.

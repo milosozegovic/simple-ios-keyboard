@@ -1,4 +1,4 @@
-# MyKeyboard
+# Simple Keyboard
 
 A custom iOS keyboard extension — the stock QWERTY layout with a digits row,
 `,` and `.` flanking the spacebar, and a narrower return key.
@@ -15,13 +15,13 @@ Built on [KeyboardKit](https://github.com/KeyboardKit/KeyboardKit) 10.9.5.
 ```sh
 brew install xcodegen
 xcodegen generate
-xcodebuild -project MyKeyboard.xcodeproj -scheme MyKeyboard \
+xcodebuild -project SimpleKeyboard.xcodeproj -scheme SimpleKeyboard \
   -destination 'platform=iOS Simulator,name=iPhone 17' build
 ```
 
 ## Enabling the keyboard
 
-Settings → General → Keyboard → Keyboards → Add New Keyboard… → MyKeyboard,
+Settings → General → Keyboard → Keyboards → Add New Keyboard… → Simple Keyboard,
 then hold the 🌐 globe key while typing and pick it.
 
 ## Layout

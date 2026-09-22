@@ -2,11 +2,11 @@ import KeyboardKit
 import SwiftUI
 
 @main
-struct MyKeyboardApp: App {
+struct SimpleKeyboardApp: App {
 
     var body: some Scene {
         WindowGroup {
-            KeyboardAppView(for: .myKeyboard) {
+            KeyboardAppView(for: .simpleKeyboard) {
                 HomeScreen()
             }
         }
