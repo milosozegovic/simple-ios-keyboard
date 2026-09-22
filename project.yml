@@ -1,7 +1,7 @@
 name: MyKeyboard
 
 options:
-  bundleIdPrefix: com.milos
+  bundleIdPrefix: com.imaginaroom
   createIntermediateGroups: true
   deploymentTarget:
     iOS: "17.0"
@@ -36,7 +36,7 @@ targets:
       - target: Keyboard
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.milos.mykeyboard
+        PRODUCT_BUNDLE_IDENTIFIER: com.imaginaroom.simple-keyboard
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_CFBundleDisplayName: MyKeyboard
@@ -53,7 +53,7 @@ targets:
       - path: Shared
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.milos.mykeyboard.Keyboard
+        PRODUCT_BUNDLE_IDENTIFIER: com.imaginaroom.simple-keyboard.Keyboard
         INFOPLIST_FILE: Keyboard/Info.plist
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_CFBundleDisplayName: MyKeyboard
