@@ -26,8 +26,19 @@ struct CustomKeyboardView: View {
             toolbar: { $0.view }
         )
         .keyboardCalloutActions { params in
-            if params.action == .character(".") {
+            guard case .character(let character) = params.action else {
+                return params.standardActions()
+            }
+            if character == "." {
                 return Self.periodCallouts
+            }
+            if let letters = Self.letterCallouts[character.lowercased()] {
+                return Self.callouts(
+                    prioritizing: letters,
+                    standard: params.standardActions() ?? [],
+                    isUppercase: params.context.keyboardCase.isUppercasedOrCapslocked
+                        || character != character.lowercased()
+                )
             }
             return params.standardActions()
         }
@@ -35,6 +46,29 @@ struct CustomKeyboardView: View {
 
     /// Long-press alternatives for ".", listed from the key outwards.
     private static let periodCallouts: [KeyboardAction] = ["?", "!", "'", "\""].map { .character($0) }
+
+    /// Long-press alternatives for letters, in lowercase and listed from the
+    /// key outwards. They go right after the plain letter, ahead of
+    /// KeyboardKit's standard accents for the key.
+    private static let letterCallouts: [String: [String]] = [
+        "s": ["š"],
+        "c": ["ć", "č"],
+        "d": ["đ"],
+        "z": ["ž"],
+    ]
+
+    /// The standard list starts with the plain letter, which stays first so
+    /// a long press released without sliding still types it.
+    private static func callouts(
+        prioritizing letters: [String],
+        standard: [KeyboardAction],
+        isUppercase: Bool
+    ) -> [KeyboardAction] {
+        let preferred = letters.map { KeyboardAction.character(isUppercase ? $0.uppercased() : $0) }
+        guard let plain = standard.first else { return preferred }
+        let others = standard.dropFirst().filter { !preferred.contains($0) }
+        return [plain] + preferred + others
+    }
 
     private func pageLabel(for action: KeyboardAction) -> String? {
         switch (keyboardContext.keyboardType, action) {
