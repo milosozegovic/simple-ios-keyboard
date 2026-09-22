@@ -21,7 +21,7 @@ class KeyboardViewController: KeyboardInputViewController {
         setupKeyboardView { controller in
             CustomKeyboardView(
                 services: controller.services,
-                state: controller.state
+                keyboardContext: controller.state.keyboardContext
             )
         }
     }
