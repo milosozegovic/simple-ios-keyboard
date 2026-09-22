@@ -25,7 +25,16 @@ struct CustomKeyboardView: View {
             emojiKeyboard: { $0.view },
             toolbar: { $0.view }
         )
+        .keyboardCalloutActions { params in
+            if params.action == .character(".") {
+                return Self.periodCallouts
+            }
+            return params.standardActions()
+        }
     }
+
+    /// Long-press alternatives for ".", listed from the key outwards.
+    private static let periodCallouts: [KeyboardAction] = ["?", "!", "'", "\""].map { .character($0) }
 
     private func pageLabel(for action: KeyboardAction) -> String? {
         switch (keyboardContext.keyboardType, action) {
