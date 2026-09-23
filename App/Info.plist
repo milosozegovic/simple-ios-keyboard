@@ -4,5 +4,7 @@
 <dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Simple Keyboard doesn't use the microphone. This notice is required because the keyboard toolkit it is built with includes an optional dictation feature, which this app has turned off.</string>
 </dict>
 </plist>
