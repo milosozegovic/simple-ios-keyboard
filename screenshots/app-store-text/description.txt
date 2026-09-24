@@ -7,9 +7,7 @@ COMMA AND PERIOD BESIDE THE SPACEBAR
 Both sit right next to space, where your thumbs expect them.
 
 SYMBOLS WHERE YOU EXPECT THEM
-Tap 123 for two symbol pages, switched with 1/2 and 2/2:
-• 1/2: + × ÷ = / _ < > [ ] and ! @ # $ % ^ & * ( )
-• 2/2: € £ ¥ ₩, braces and bars, bullets and shapes, ¡ and ¿
+Tap 123 for two pages of math signs, brackets, punctuation, currencies and shapes, switched with 1/2 and 2/2.
 
 Š, Ć, Č, Đ AND Ž ON LONG-PRESS
 Hold S, C, D or Z and the letter you need is right next to your finger. Made for Serbian, Croatian, Bosnian and Montenegrin Latin. The letters follow Shift and Caps Lock, and the other accents are still there after them.
@@ -23,8 +21,8 @@ What you type stays on your iPhone. Simple Keyboard never records or sends your 
 HOW TO TURN IT ON
 1. Open Settings → General → Keyboard → Keyboards
 2. Tap Add New Keyboard and choose Simple Keyboard
-3. In any text field, hold the 🌐 key and pick Simple Keyboard
+3. In any text field, hold the globe key and pick Simple Keyboard
 4. Optional: tap Simple Keyboard in that list and turn on Allow Full Access for haptic feedback
 
 GOOD TO KNOW
-Simple Keyboard is all about the layout. It does not include autocorrect, word suggestions or swipe typing. For emoji, tap 🌐 to switch to the iPhone keyboard.
+Simple Keyboard is all about the layout. It does not include autocorrect, word suggestions or swipe typing. For emoji, tap the globe key to switch to the iPhone keyboard.
