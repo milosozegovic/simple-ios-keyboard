@@ -86,7 +86,8 @@ renders blank on iPhone in the free tier, which is why the digits row is built b
 - KeyboardKit v10 is **closed source** (free tier + paid Pro), distributed as a
   binary `.xcframework`. It is linked to the app target only; the extension
   resolves it at runtime from the app's `Frameworks/` folder.
-- `RequestsOpenAccess` is `false`, so the keyboard works without Full Access.
-  No haptics and no App Group sync until that changes.
+- `RequestsOpenAccess` is `true` only because iOS blocks haptic feedback in keyboards
+  without Full Access. Full Access is optional: everything else works without it, and
+  the keyboard has no network code either way.
 - Autocorrect, predictive text and the emoji keyboard are KeyboardKit Pro features
   and are not present.

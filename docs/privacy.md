@@ -4,7 +4,7 @@ title: Privacy policy · Simple Keyboard
 
 # Privacy policy
 
-_Last updated: 23 September 2026_
+_Last updated: 24 September 2026_
 
 Simple Keyboard does not collect, store or share any personal data.
 
@@ -13,11 +13,17 @@ Simple Keyboard does not collect, store or share any personal data.
 Everything you type with Simple Keyboard stays on your device. The keyboard does
 not record, save or send your keystrokes anywhere.
 
-## Full Access and network
+## Full Access
 
-Simple Keyboard does not ask for Full Access. Without Full Access, iOS does not
-allow a keyboard to connect to the internet or share data with other apps, so the
-keyboard has no way to send anything off your device.
+Turning on Full Access is optional. Simple Keyboard asks for it only because iOS
+does not let a keyboard use haptic feedback (the small vibration when you tap a key)
+without it. Everything else works the same with Full Access turned off.
+
+When you turn on Full Access, iOS shows a general warning that a keyboard could
+send what you type to its developer. Simple Keyboard does not: it has no network
+code, uses no servers, and never records, stores or transmits your keystrokes,
+with or without Full Access. You can turn Full Access off at any time in
+Settings → General → Keyboard → Keyboards → Simple Keyboard.
 
 ## The app
 
