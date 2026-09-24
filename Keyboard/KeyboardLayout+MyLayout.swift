@@ -17,6 +17,7 @@ extension KeyboardLayout {
         default:
             return layout
         }
+        layout.alignBottomRowWithShift()
         layout.addPunctuationAroundSpace()
         layout.setReturnKeyWidth(.percentage(0.135))
         return layout
@@ -71,9 +72,31 @@ private extension KeyboardLayout {
         ]
     }
 
+    /// Web address fields already have a `.urlDomain` key, which types "." and
+    /// offers .com, .org and more on long-press, so ours would be a duplicate.
+    /// Widens the 123 / ABC key to Shift's width plus the margin before Z
+    /// (13% + 2%), so the "," next to it sits directly under Z. The emoji key
+    /// is dropped: the emoji keyboard is a KeyboardKit Pro feature, so it never shows.
+    mutating func alignBottomRowWithShift() {
+        guard !itemRows.isEmpty else { return }
+        let last = itemRows.count - 1
+        itemRows[last].removeAll { $0.action == .keyboardType(.emojis) }
+        for index in itemRows[last].indices {
+            guard case .keyboardType(let type) = itemRows[last][index].action,
+                  type == .numeric || type == .alphabetic else { continue }
+            itemRows[last][index].size.width = .percentage(0.15)
+        }
+    }
+
     mutating func addPunctuationAroundSpace() {
-        itemRows.insert(createIdealItem(for: .character(","), width: .input), before: .space)
-        itemRows.insert(createIdealItem(for: .character("."), width: .input), after: .space)
+        let bottomRow = itemRows.last ?? []
+        func has(_ action: KeyboardAction) -> Bool { bottomRow.contains { $0.action == action } }
+        if !has(.character(",")) {
+            itemRows.insert(createIdealItem(for: .character(","), width: .input), before: .space)
+        }
+        if !has(.character(".")) && !has(.urlDomain) {
+            itemRows.insert(createIdealItem(for: .character("."), width: .input), after: .space)
+        }
     }
 
     /// The return key's action carries the field's return type, which varies
