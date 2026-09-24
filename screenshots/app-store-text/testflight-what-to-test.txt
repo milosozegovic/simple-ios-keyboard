@@ -1,0 +1,3 @@
+Build 4: the space above the numbers row stays the same when switching keyboards, the comma sits under Z, Safari's address bar has a single period key (hold it for .com), and haptic feedback works when Full Access is on, with a firmer tap per key.
+
+Please check: turn on Settings → General → Keyboard → Keyboards → Simple Keyboard → Allow Full Access, then make sure keys vibrate. Also try the keyboard in Safari, Messages and Notes, including 123, 1/2, and long-pressing S, C, D, Z and the period.
