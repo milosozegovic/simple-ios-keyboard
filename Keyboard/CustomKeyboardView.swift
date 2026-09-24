@@ -23,8 +23,12 @@ struct CustomKeyboardView: View {
             buttonView: { $0.view },
             collapsedView: { $0.view },
             emojiKeyboard: { $0.view },
-            toolbar: { $0.view }
+            toolbar: { _ in EmptyView() }
         )
+        .keyboardToolbarStyle(.init(height: 0, minHeight: 0, maxHeight: 0))
+        // Space above the numbers row. Some hosts, like Safari, overlap the top of
+        // the keyboard with their own bar, so the keyboard needs this room itself.
+        .padding(.top, Self.topPadding)
         .keyboardCalloutActions { params in
             guard case .character(let character) = params.action else {
                 return params.standardActions()
@@ -43,6 +47,8 @@ struct CustomKeyboardView: View {
             return params.standardActions()
         }
     }
+
+    private static let topPadding: CGFloat = 0
 
     /// Long-press alternatives for ".", listed from the key outwards.
     private static let periodCallouts: [KeyboardAction] = ["?", "!", "'", "\""].map { .character($0) }
