@@ -4,10 +4,10 @@ extension KeyboardApp {
 
     /// Shared configuration used by both the app and the keyboard extension.
     ///
-    /// To sync settings between the two, create an App Group in the Apple
-    /// Developer portal, add it to both targets, then pass its id here as
-    /// `appGroupId:`. A `licenseKey:` here unlocks KeyboardKit Pro.
+    /// The App Group syncs settings, like the feedback toggles, between the
+    /// app and the keyboard. The keyboard can only read it with Full Access.
+    /// A `licenseKey:` here unlocks KeyboardKit Pro.
     static var simpleKeyboard: KeyboardApp {
-        .init(name: "Simple Keyboard")
+        .init(name: "Simple Keyboard", appGroupId: SharedSettings.appGroupId)
     }
 }

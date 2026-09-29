@@ -2,14 +2,16 @@ import KeyboardKit
 
 extension KeyboardLayout {
 
-    /// Every page gets a digits row on top and "," / "." flanking the
-    /// spacebar. The numeric and symbolic pages follow the Android layout:
+    /// The letters page gets an optional digits row on top, and every page
+    /// gets "," / "." flanking the spacebar. The numeric and symbolic pages follow the Android layout:
     /// two rows of ten symbols, then a page toggle, seven symbols and backspace.
     static func myLayout(for context: KeyboardContext) -> KeyboardLayout {
         var layout = KeyboardLayout.standard(for: context)
         switch context.keyboardType {
         case .alphabetic:
-            layout.itemRows.insert(layout.characterRow(SymbolPage.digits), at: 0)
+            if SharedSettings.showsNumbersRow {
+                layout.itemRows.insert(layout.characterRow(SymbolPage.digits), at: 0)
+            }
         case .numeric:
             layout.replaceUpperRows(with: .first, pageToggle: .keyboardType(.symbolic))
         case .symbolic:
@@ -24,6 +26,15 @@ extension KeyboardLayout {
     }
 }
 
+extension KeyboardLayout {
+
+    /// The height the keyboard needs for these rows, plus a fixed gap on top.
+    func keyboardHeight(topGap: CGFloat) -> CGFloat {
+        let rows = itemRows.reduce(0) { $0 + ($1.map(\.size.height).max() ?? 0) }
+        return rows + configuration.edgeInsets.top + configuration.edgeInsets.bottom + topGap
+    }
+}
+
 struct SymbolPage {
 
     static let digits = "1234567890"
@@ -31,7 +42,7 @@ struct SymbolPage {
     static let first = SymbolPage(
         upper: "+×÷=/_<>[]",
         middle: "!@#$%^&*()",
-        lower: "-'\":;?"
+        lower: "-'\":;,?"
     )
 
     static let second = SymbolPage(
@@ -88,14 +99,18 @@ private extension KeyboardLayout {
         }
     }
 
+    /// Adds the keys chosen in the app on either side of the spacebar. Web
+    /// address fields already have a `.urlDomain` key right of the spacebar,
+    /// which types "." and offers .com, .org and more on long-press, so no key
+    /// is added there.
     mutating func addPunctuationAroundSpace() {
         let bottomRow = itemRows.last ?? []
         func has(_ action: KeyboardAction) -> Bool { bottomRow.contains { $0.action == action } }
-        if !has(.character(",")) {
-            itemRows.insert(createIdealItem(for: .character(","), width: .input), before: .space)
+        if let left = SharedSettings.leftSpaceKey, !has(.character(left)) {
+            itemRows.insert(createIdealItem(for: .character(left), width: .input), before: .space)
         }
-        if !has(.character(".")) && !has(.urlDomain) {
-            itemRows.insert(createIdealItem(for: .character("."), width: .input), after: .space)
+        if let right = SharedSettings.rightSpaceKey, !has(.character(right)), !has(.urlDomain) {
+            itemRows.insert(createIdealItem(for: .character(right), width: .input), after: .space)
         }
     }
 

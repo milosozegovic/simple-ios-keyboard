@@ -10,25 +10,25 @@ struct CustomKeyboardView: View {
     @ObservedObject var keyboardContext: KeyboardContext
 
     var body: some View {
-        KeyboardView(
-            layout: .myLayout(for: keyboardContext),
-            services: services,
-            buttonContent: { params in
-                if let label = pageLabel(for: params.item.action) {
-                    Text(label)
-                } else {
-                    params.view
-                }
-            },
-            buttonView: { $0.view },
-            collapsedView: { $0.view },
-            emojiKeyboard: { $0.view },
-            toolbar: { _ in EmptyView() }
-        )
-        .keyboardToolbarStyle(.init(height: 0, minHeight: 0, maxHeight: 0))
-        // Space above the numbers row. Some hosts, like Safari, overlap the top of
-        // the keyboard with their own bar, so the keyboard needs this room itself.
-        .padding(.top, Self.topPadding)
+        VStack(spacing: 0) {
+            Spacer(minLength: 0)
+            KeyboardView(
+                layout: .myLayout(for: keyboardContext),
+                services: services,
+                buttonContent: { params in
+                    if let label = pageLabel(for: params.item.action) {
+                        Text(label)
+                    } else {
+                        params.view
+                    }
+                },
+                buttonView: { $0.view },
+                collapsedView: { $0.view },
+                emojiKeyboard: { $0.view },
+                toolbar: { _ in EmptyView() }
+            )
+            .keyboardToolbarStyle(.init(height: 0, minHeight: 0, maxHeight: 0))
+        }
         .keyboardCalloutActions { params in
             guard case .character(let character) = params.action else {
                 return params.standardActions()
@@ -47,8 +47,6 @@ struct CustomKeyboardView: View {
             return params.standardActions()
         }
     }
-
-    private static let topPadding: CGFloat = 0
 
     /// Long-press alternatives for ".", listed from the key outwards.
     private static let periodCallouts: [KeyboardAction] = ["?", "!", "'", "\""].map { .character($0) }

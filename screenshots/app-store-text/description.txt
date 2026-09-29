@@ -16,7 +16,7 @@ QUICK PUNCTUATION
 Hold the period for ? ! ' and " without leaving the letters.
 
 PRIVATE BY DESIGN
-What you type stays on your iPhone. Simple Keyboard never records or sends your keystrokes, and has no accounts, ads or tracking. Full Access is optional and only needed for haptic feedback, since iOS doesn't let keyboards vibrate without it.
+What you type stays on your iPhone. Simple Keyboard never records or sends your keystrokes, and has no accounts, ads or tracking. Full Access is optional and only needed for haptic feedback and the in-app haptic and sound switches, since iOS doesn't let keyboards vibrate without it.
 
 HOW TO TURN IT ON
 1. Open Settings → General → Keyboard → Keyboards

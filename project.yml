@@ -30,6 +30,11 @@ targets:
     sources:
       - path: App
       - path: Shared
+    entitlements:
+      path: App/SimpleKeyboard.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.imaginaroom.simple-keyboard
     dependencies:
       # KeyboardKit is a binary xcframework, so it is linked ONLY here.
       # The Keyboard extension imports it without linking, and resolves
@@ -54,6 +59,11 @@ targets:
   Keyboard:
     type: app-extension
     platform: iOS
+    entitlements:
+      path: Keyboard/Keyboard.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.imaginaroom.simple-keyboard
     sources:
       - path: Keyboard
       - path: Shared

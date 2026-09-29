@@ -58,7 +58,8 @@ then hold the 🌐 globe key while typing and pick it.
 The layouts live in `Keyboard/KeyboardLayout+MyLayout.swift`:
 
 - the digits row is a real layout row inserted at index 0
-- `,` and `.` are inserted before/after `.space`
+- the keys beside `.space` (`,` and `.` by default) come from the app's Spacebar keys
+  settings, read from the shared App Group (`Shared/SharedSettings.swift`)
 - the return key is resized by matching the `.primary` action case, because its
   associated `ReturnKeyType` varies per text field
 - the numeric and symbolic pages are built from `SymbolPage`, one string per row
@@ -86,8 +87,9 @@ renders blank on iPhone in the free tier, which is why the digits row is built b
 - KeyboardKit v10 is **closed source** (free tier + paid Pro), distributed as a
   binary `.xcframework`. It is linked to the app target only; the extension
   resolves it at runtime from the app's `Frameworks/` folder.
-- `RequestsOpenAccess` is `true` only because iOS blocks haptic feedback in keyboards
-  without Full Access. Full Access is optional: everything else works without it, and
+- `RequestsOpenAccess` is `true` because iOS blocks haptic feedback in keyboards
+  without Full Access, and because the keyboard reads the app's keyboard settings
+  from the shared App Group, which also needs it. Full Access is optional: everything else works without it, and
   the keyboard has no network code either way.
 - Autocorrect, predictive text and the emoji keyboard are KeyboardKit Pro features
   and are not present.

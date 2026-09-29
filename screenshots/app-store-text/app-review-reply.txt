@@ -15,7 +15,7 @@ c) Touch and hold the globe key and choose Simple Keyboard.
 d) Type using the numbers row, and the comma and period beside the spacebar.
 e) Tap 123 for the first symbols page, then 1/2 for the second; tap ABC to return.
 f) Touch and hold S, C, D, Z or the period key to see the extra characters.
-g) Optional: Settings → General → Keyboard → Keyboards → Simple Keyboard → Allow Full Access. Full Access is requested only to enable haptic feedback, which iOS does not allow keyboards without it. The keyboard is fully functional with Full Access turned off.
+g) Optional: Settings → General → Keyboard → Keyboards → Simple Keyboard → Allow Full Access. Full Access is requested to enable haptic feedback, which iOS does not allow keyboards without it, and so the keyboard can read the haptic and sound switches in the app's Keyboard settings (stored on the device in a shared App Group). The keyboard is fully functional with Full Access turned off.
 
 4. EXTERNAL SERVICES
 None. The app uses no servers, data providers, authentication services, payment processors, analytics or AI services. The keyboard is built with the KeyboardKit library, which runs entirely on the device. The keyboard contains no network code and collects no data.
