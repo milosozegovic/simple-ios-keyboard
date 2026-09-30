@@ -7,6 +7,8 @@ extension KeyboardLayout {
     /// two rows of ten symbols, then a page toggle, seven symbols and backspace.
     static func myLayout(for context: KeyboardContext) -> KeyboardLayout {
         var layout = KeyboardLayout.standard(for: context)
+        layout.configuration.edgeInsets.leading = sideInset
+        layout.configuration.edgeInsets.trailing = sideInset
         switch context.keyboardType {
         case .alphabetic:
             if SharedSettings.showsNumbersRow {
@@ -27,6 +29,9 @@ extension KeyboardLayout {
 }
 
 extension KeyboardLayout {
+
+    /// Keeps the outer keys off the screen edges.
+    static let sideInset: CGFloat = 3
 
     /// The height the keyboard needs for these rows, plus a fixed gap on top.
     func keyboardHeight(topGap: CGFloat) -> CGFloat {

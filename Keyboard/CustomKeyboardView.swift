@@ -9,11 +9,15 @@ struct CustomKeyboardView: View {
     /// e.g. when 123 switches to the numeric page.
     @ObservedObject var keyboardContext: KeyboardContext
 
+    /// Observed to know which key is showing its tap preview.
+    @ObservedObject var calloutContext: KeyboardCalloutContext
+
     var body: some View {
+        let layout = KeyboardLayout.myLayout(for: keyboardContext)
         VStack(spacing: 0) {
             Spacer(minLength: 0)
             KeyboardView(
-                layout: .myLayout(for: keyboardContext),
+                layout: layout,
                 services: services,
                 buttonContent: { params in
                     if let label = pageLabel(for: params.item.action) {
@@ -28,6 +32,7 @@ struct CustomKeyboardView: View {
                 toolbar: { _ in EmptyView() }
             )
             .keyboardToolbarStyle(.init(height: 0, minHeight: 0, maxHeight: 0))
+            .keyboardCalloutStyle(calloutStyle(for: layout))
         }
         .keyboardCalloutActions { params in
             guard case .character(let character) = params.action else {
@@ -72,6 +77,22 @@ struct CustomKeyboardView: View {
         guard let plain = standard.first else { return preferred }
         let others = standard.dropFirst().filter { !preferred.contains($0) }
         return [plain] + preferred + others
+    }
+
+    /// A keyboard can't draw above its own top edge, so the tap preview on the
+    /// top row would be cut in half. It's hidden there instead; the key still
+    /// shows its pressed state. Long-press menus keep the standard style.
+    private func calloutStyle(for layout: KeyboardLayout) -> KeyboardCalloutStyle {
+        guard let action = calloutContext.inputAction,
+              calloutContext.secondaryActions.isEmpty,
+              layout.itemRows.first?.contains(where: { $0.action == action }) == true
+        else { return .standard }
+        var hidden = KeyboardCalloutStyle.standard
+        hidden.backgroundColor = .clear
+        hidden.foregroundColor = .clear
+        hidden.borderColor = .clear
+        hidden.shadowColor = .clear
+        return hidden
     }
 
     private func pageLabel(for action: KeyboardAction) -> String? {
